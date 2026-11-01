@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "captured_at": null,
+  "contest": {"url": null, "id": null},
+  "problem": {"url": null, "id": null, "code_template": null, "template_sha256": null},
+  "objective": "official_score",
+  "environment": {"chip": null, "cann": null, "compiler": null, "npu_available": null},
+  "contract": {
+    "reference_path": null,
+    "reference_sha256": null,
+    "host_signature": null,
+    "dtypes": [],
+    "parameter_domain": null,
+    "comparison_rule": null,
+    "readonly_files": [],
+    "kernel_launch_limit": null,
+    "workspace_acl_constraints": null,
+    "allowed_technical_sources": []
+  },
+  "scoring": {
+    "ranking_submission_mode": "unknown",
+    "partial_credit": "unknown",
+    "expected_total_testcases": null,
+    "visible_testcase_count": null,
+    "time_unit": "unknown",
+    "evidence": []
+  },
+  "submission": {
+    "transport": "existing_project_helper_or_sdk",
+    "coordinator": null,
+    "quota": null,
+    "reset_timezone": null,
+    "cooldown_seconds": null,
+    "inflight_attempts": []
+  },
+  "selection": {"local_main": null, "candidate": null, "official_selected_submission": null},
+  "source_evidence": []
+}

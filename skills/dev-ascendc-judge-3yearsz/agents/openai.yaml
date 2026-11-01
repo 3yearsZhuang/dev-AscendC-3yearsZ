@@ -1,0 +1,3 @@
+interface:
+  display_name: "dev-AscendC Judge · 3yearsZ"
+  short_description: "串行承接已授权 CANNJudge 评测，恢复未知请求并核对源码与结果"

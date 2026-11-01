@@ -1,0 +1,3 @@
+interface:
+  display_name: "dev-AscendC Tune · 3yearsZ"
+  short_description: "根据真实 Ascend C 性能形成瓶颈假设，设计候选、消融与复测"

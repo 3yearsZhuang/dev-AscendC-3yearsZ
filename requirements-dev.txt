@@ -1,0 +1,2 @@
+-r skills/dev-ascendc-3yearsz/scripts/requirements.txt
+pytest>=8,<10

@@ -1,0 +1,33 @@
+name: Offline checks
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.14"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: |
+            requirements-dev.txt
+            skills/dev-ascendc-3yearsz/scripts/requirements.txt
+      - name: Install test dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Run offline regressions
+        run: python -m pytest -q skills/dev-ascendc-3yearsz/tests
+      - name: Check command-line entry points
+        run: |
+          python skills/dev-ascendc-3yearsz/scripts/cannjudge.py --help
+          python skills/dev-ascendc-3yearsz/scripts/verify_evidence.py --help
+          python skills/dev-ascendc-3yearsz/scripts/check_handoff.py --help
