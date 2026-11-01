@@ -36,7 +36,7 @@ cd dev-AscendC-3yearsZ
 
 将 `skills/` 下六个 `dev-ascendc…-3yearsz` 目录复制到 `~/.codex/skills/`；设置了 `CODEX_HOME` 时，目标为 `$CODEX_HOME/skills/`。已有同名技能时，先备份并移走六个旧目录，再整套替换。按客户端的技能刷新方式重新加载；未出现时重启客户端。
 
-这些技能不依赖安装 `cannjudge-submit`、`ops-direct-invoke-flash` 或旧版 `ascend-operator-acm`。
+六个技能已包含工作流所需的共享资源，无须安装其他技能。
 
 ## 使用
 
@@ -87,8 +87,8 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider skil
 
 v1.1.0 包含 **187 项离线回归测试**，覆盖提交恢复、证据一致性和角色交接。CI 执行这些测试和三个脚本的帮助命令。离线测试不登录 CANNJudge，也不发起正式提交；本版本尚未完成真实服务登录/提交、CANN 编译或 NPU 验证。
 
-## 来源与许可
+## 许可
 
-技能组织参考 `cann-learning-hub` 的 `cannjudge-submit`、`cannbot` 开发插件与相关测试技能，并吸收 `ascend-operator-acm` 的赛事工作流经验。固定提交和吸收范围见 [来源记录](skills/dev-ascendc-3yearsz/references/provenance.md)。
+自有代码和文档采用 [Apache License 2.0](LICENSE)。
 
-内置的三个上游 SDK 文件保持原样，沿用 **CANN Open Software License Agreement Version 2.0**；该协议含用途限制，不是 MIT/Apache 许可。详见 [第三方说明](THIRD_PARTY_NOTICES.md) 和随附 [上游许可证](skills/dev-ascendc-3yearsz/scripts/vendor/cannjudge_submit/LICENSE)。本仓库暂未为自有部分另行指定许可证。
+内置 SDK 保留其 [CANN Open Software License Agreement Version 2.0](skills/dev-ascendc-3yearsz/scripts/vendor/cannjudge_submit/LICENSE)，具体范围见 [第三方许可](THIRD_PARTY_NOTICES.md)。

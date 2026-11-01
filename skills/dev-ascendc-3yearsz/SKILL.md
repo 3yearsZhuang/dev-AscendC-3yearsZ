@@ -5,7 +5,7 @@ description: Ascend C / CANN 赛事算子的总控技能，按任务委托方案
 
 # dev-AscendC-3yearsZ
 
-作为总控，保留用户目标、任务约束、版本选择和提交协调；把执行任务交给对应子技能，按真实产物复核结论。先读 [委托与交接协议](references/delegation.md)，再只加载当前需要的角色。技能清单见 [suite.json](suite.json)，固定参考来源见 [来源记录](references/provenance.md)。
+作为总控，保留用户目标、任务约束、版本选择和提交协调；把执行任务交给对应子技能，按真实产物复核结论。先读 [委托与交接协议](references/delegation.md)，再只加载当前需要的角色。技能清单见 [suite.json](suite.json)。
 
 ## 按任务委托
 

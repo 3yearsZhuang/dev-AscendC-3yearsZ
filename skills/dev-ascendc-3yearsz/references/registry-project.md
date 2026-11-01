@@ -17,5 +17,3 @@ Tiling 分别回答多核切分、核内 UB Tile、buffer/scratch 存活、尾�
 - 比较器是否正确处理非有限值和大整数；精度规则是否来自题目。
 
 构建、安装与 `aclnn*GetWorkspaceSize`/执行二段式沿用真实工程。安装步骤会改变环境，只在任务已要求且授权的范围执行；本地源码准备与审查无需因此停下。
-
-这些检查借鉴 `cann-learning-hub/skills/ascendc-ops-project` 的工程分层，并吸收本次审查暴露的反例；没有把其教学模板当作已通过当前设备的实现。来源与固定提交见 [来源记录](provenance.md)。
