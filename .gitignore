@@ -23,3 +23,6 @@ attempts/
 evaluations/
 problem-work/
 verified-result.json
+
+# local CANN pre-compile sandbox: 1.1 GB toolkit package, not for version control
+skills/dev-ascendc-3yearsz/scripts/local_cann/cache/

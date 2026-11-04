@@ -76,7 +76,7 @@ python3 -m venv .venv
 | `verify_evidence.py` | 离线检查源码与评测记录的一致性；服务端源码比对限单文件 `kernel.asc` / `kernel_cpp` |
 | `check_handoff.py` | 离线检查委托身份、文件 SHA、产物和声明范围；不监控进程权限，也不认证日志或官方结果真实性 |
 
-后两个检查器不能证明算法正确或 NPU 通过。源码相同的历史结果也不能单独证明某次未知 POST 的身份。
+本仓库只分发技能与离线工具。本地模拟答题 OJ（`oj/`：容器内真实编译 + CPU 孪生判题 + 网页答题界面）、三站赛事工程与评测证据统一放在私有仓库 **AscendC-workbench**，不再随本仓库发布。`verify_evidence.py` 与 `check_handoff.py` 不能证明算法正确或 NPU 通过；源码相同的历史结果也不能单独证明某次未知 POST 的身份。
 
 ## 验证
 

@@ -36,6 +36,7 @@ description: 按题目契约和候选方案实现或修改 Ascend C / CANN 算�
 - 运行与改动风险相称的样例或反例；本地模型保留影响语义的真实类型、宏、分发和精确分配。
 - 改动 UB 追加位置、缓冲区偏移或多 dtype 分支时，先看 [算子优化与诊断](../dev-ascendc-3yearsz/references/optimization.md) 的“目标侧硬约束与已验证陷阱”：非 32 B 对齐的 `LocalTensor` 偏移和 C++14 下两个分支都实例化的 dtype 判断会直接导致启动或编译失败。
 - 有可用目标环境时完成约定的目标编译或本地设备检查；缺失环境就记录限制，不用 CPU 通过代替。
+- 没有设备但需要目标编译时，用 [本地先行编译](../dev-ascendc-3yearsz/references/local-precompile.md)：无 NPU 的 Linux 容器内跑真实 CANN 工具链，能复现宏展开、`__gm__` 属性与 C++14 分支实例化这类正式 Compile Error；仍需记为“目标编译通过”，不是设备结果。
 - 输出最终候选 SHA 与检查所用源码 SHA；若末次修改未复查，明确该范围未验证。
 
 ## 交接
