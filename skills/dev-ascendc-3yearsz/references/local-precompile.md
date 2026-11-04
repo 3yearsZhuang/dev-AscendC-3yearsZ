@@ -61,6 +61,23 @@ skills/dev-ascendc-3yearsz/scripts/local_cann/precompile-project.sh <工程目�
 
 只做编译能拦 CE，但拦不住 WA。若还需要数值判定，可在同一镜像上搭本地 OJ：真实编译后以 CPU 孪生模式执行工程自带的 `sample.py` 比较器，判 AC/WA/CE/RE。做法的两个关键约束（`main.asc` 的全局 `check()` 与 `AscendC::check` 冲突需在评测副本上改名；CPU 模式必须显式带 `--npu-arch`，否则 bisheng 崩溃）见私有工作区 AscendC-workbench 的 `oj/README.md`。CPU 仿真耗时只能做同机相对比较，不能当作 NPU 性能。
 
+### CPU 桩不注册模板核函数名
+
+把新算法写成 `template<typename T> __global__ __aicore__ void foo(...)` 再实例化 `foo<float>`，目标编译可以通过，但 CPU 孪生启动时报：
+
+```text
+RUN ERROR: Kernel mode not found for kernel: _Z3fooIfEvPh...
+```
+
+这是 CPU 桩按**非模板符号**注册核函数的限制，不是源码或 dtype 错误。修法是每个 dtype 写一个**非模板**的 `__global__` 包装，内部实例化类模板：
+
+```cpp
+__global__ __aicore__ void foo_float(...) { Foo<float> op; op.Init(...); op.Process(); }
+__global__ __aicore__ void foo_half(...)  { Foo<half>  op; op.Init(...); op.Process(); }
+```
+
+同一限制也解释 rmsnorm/indexreduce 的稳定 RE。不要因为模板版 RE 就改写算法或换 dtype；先换非模板入口重跑。
+
 ## 判读与记录
 
 - 报 `COMPILE_OK` 时记录：源码 SHA、CANN 版本、`--npu-arch`、镜像 ID、命令、耗时。

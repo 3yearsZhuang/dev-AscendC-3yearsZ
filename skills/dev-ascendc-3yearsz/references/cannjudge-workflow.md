@@ -84,6 +84,8 @@ python3 "$ASCEND_SKILL_DIR/scripts/cannjudge.py" reconcile --attempt-dir ./evalu
 
 摘要保留顶层原状态、实际返回点数、可见/隐藏点数、通过/失败/未知点数、预期总点数和完整覆盖判断。`precision_ratio` 原样保留；单位不明的耗时保留原值。失败点的零耗时不纳入速度对照。查询还需核对返回 ID、题目、账号及可获得的源码；响应身份不符时保留诊断原文，不覆盖已绑定结果。完整响应仍是核查依据，摘要不替代原始记录。
 
+**评测机不可用不是源码失败。** 顶层 `Fail`、全部可见点 `time=0`、`precision_ratio=0` 时，先读逐点 `msg`：若为 `evaluation machine unavailable; retry on another machine`，这是平台评测机不可用。保留该结果，不要按启动级 Runtime Error 改写源码；用同一份源码和新的 attempt 标签重试。只有没有该 `msg` 的全零失败才按资源、偏移或非法指令分析。
+
 `rank` 应保留服务端返回顺序和分数字段。题目的 latest 端点返回列表不等于已证明它就是全站总榜；需要官方名次时读取相应页面/榜单快照，不能自己按 Pass 优先重排后冠名官方排名。
 
 晋升前核对主源码、发送快照和完整结果；可用 `scripts/verify_evidence.py --help` 检查项目已有的 `verified-result.json`：

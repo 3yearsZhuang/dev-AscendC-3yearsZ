@@ -26,3 +26,6 @@ verified-result.json
 
 # local CANN pre-compile sandbox: 1.1 GB toolkit package, not for version control
 skills/dev-ascendc-3yearsz/scripts/local_cann/cache/
+
+# local stress-test scratch (OJ copy, candidate kernels, docker runs)
+.stress/
