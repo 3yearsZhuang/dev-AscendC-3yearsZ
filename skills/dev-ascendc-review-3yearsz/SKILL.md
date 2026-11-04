@@ -22,6 +22,7 @@ description: 独立审查 Ascend C / CANN 候选的契约、数值、访存、�
 - 白盒核对真实 Host 类型/宏、dtype 分发、入口/stream、可编辑范围、kernel 次数与 workspace/ACL 限制。
 - 检查累加顺序、转换和舍入、计数器溢出、inactive lane、NaN/Inf/正负零；范围由输入域与比较器决定。
 - 分开检查 GM 精确有效长度、UB 总槽位与 scratch、指令长度/stride/mask、核尾/Tile 尾和 padding 初始化。
+- 逐条核对 UB 操作数对齐（向量指令目标的字节偏移为 32 的倍数）与 dtype 分支的实例化条件：C++14 下 `sizeof(T)==4` 的运行时分支同样会为所有 dtype 编译。
 - 检查队列生命周期、Scalar/Vector/MTE 依赖、scratch 复用、事件与跨核同步；CPU 同步执行不能证明目标异步安全。
 - 本地测试规模与风险相称；必要时用精确分配、sanitizer、独立 lane 探针或负控制查模型盲区。
 - 对需要目标编译或设备验证的性质明确检查来源；CPU clang、模拟器或静态推理不能替代缺失的目标证据。

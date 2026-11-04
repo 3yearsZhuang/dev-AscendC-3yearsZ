@@ -1,14 +1,29 @@
 {
   "schema_version": 1,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "entry_skill": "dev-ascendc-3yearsz",
   "installation_layout": "six sibling skill directories; install and update together",
   "roles": {
-    "plan": {"skill": "dev-ascendc-plan-3yearsz", "entry": "../dev-ascendc-plan-3yearsz/SKILL.md"},
-    "implement": {"skill": "dev-ascendc-implement-3yearsz", "entry": "../dev-ascendc-implement-3yearsz/SKILL.md"},
-    "review": {"skill": "dev-ascendc-review-3yearsz", "entry": "../dev-ascendc-review-3yearsz/SKILL.md"},
-    "tune": {"skill": "dev-ascendc-tune-3yearsz", "entry": "../dev-ascendc-tune-3yearsz/SKILL.md"},
-    "judge": {"skill": "dev-ascendc-judge-3yearsz", "entry": "../dev-ascendc-judge-3yearsz/SKILL.md"}
+    "plan": {
+      "skill": "dev-ascendc-plan-3yearsz",
+      "entry": "../dev-ascendc-plan-3yearsz/SKILL.md"
+    },
+    "implement": {
+      "skill": "dev-ascendc-implement-3yearsz",
+      "entry": "../dev-ascendc-implement-3yearsz/SKILL.md"
+    },
+    "review": {
+      "skill": "dev-ascendc-review-3yearsz",
+      "entry": "../dev-ascendc-review-3yearsz/SKILL.md"
+    },
+    "tune": {
+      "skill": "dev-ascendc-tune-3yearsz",
+      "entry": "../dev-ascendc-tune-3yearsz/SKILL.md"
+    },
+    "judge": {
+      "skill": "dev-ascendc-judge-3yearsz",
+      "entry": "../dev-ascendc-judge-3yearsz/SKILL.md"
+    }
   },
   "shared_resources_owner": "dev-ascendc-3yearsz",
   "external_skill_dependencies": [],

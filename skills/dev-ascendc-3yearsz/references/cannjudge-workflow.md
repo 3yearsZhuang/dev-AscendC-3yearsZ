@@ -62,6 +62,12 @@ python3 "$ASCEND_SKILL_DIR/scripts/cannjudge.py" query --attempt-dir ./evaluatio
 
 正式发送前写入最终 payload（含当前账号 ID，**不含 Cookie/密码**）和 dispatching 状态。即使随后进程退出，也不能据没有回执认定没发送。包装层对一次 attempt 不自动重试 POST；明确冷却拒绝应保留原始拒绝，遵从服务端时限，由协调者决定下一次独立尝试。状态不明时不能新建目录来绕过防重放。
 
+## 标签页健康检查与未知受理恢复
+
+- 后台标签可能被浏览器冻结：`execute javascript` 返回空串、异步 `fetch` 的结果读不到，轮询只会超时，但 POST 可能已经发出。构造请求前先做一次无副作用探活（返回非空即健康）；不健康就 reload 该标签、等它恢复可响应再继续。探活必须在写入 attempt 状态之前完成，否则一次未发出的请求会被记成未知受理。
+- 轮询超时后不重投。用 `/api/submissions/user/<uid>` 找该题、该时间窗内的新记录，取回 `/api/submissions/<id>` 中服务端 `kernel.asc` 字节并与本地冻结源码比对 SHA；一致才认领该 ID，并写明这是“账号历史 + 源码一致”的关联，身份确认状态按实际填写。
+- 传输入口优先遍历所有窗口和标签页而不是只读活动标签：用户切换标签不应让已授权请求失败，执行也不应抢占焦点。
+
 ## 恢复与同源码关联
 
 取得 submission ID 后，`query`/`resume` 只查询该 ID，保存原始结果和摘要。Running、Pending 或未知状态不算完成；按需稍后继续查询，不把一次 GET 当作最终验收。交付时保留仍在运行的 ID。
