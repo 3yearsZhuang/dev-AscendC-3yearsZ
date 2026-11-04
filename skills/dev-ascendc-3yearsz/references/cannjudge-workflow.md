@@ -14,7 +14,7 @@ python3 -m venv .venv-cannjudge
 .venv-cannjudge/bin/python "$ASCEND_SKILL_DIR/scripts/cannjudge.py" --help
 ```
 
-常规操作只需要 requests；RSA 密码解密额外需要 pycryptodome。持久化包装入口使用 `fcntl` 与目录 `fsync`，目前限 Linux/macOS 等 POSIX 系统；会话模块的 Windows 支持不代表包装层支持 Windows。正式提交由包装层记录本地持久化状态。未经本次真实服务测试，不宣称当前线上登录/提交端到端已通过。
+常规操作只需要 requests；RSA 密码解密额外需要 pycryptodome。持久化包装入口使用 `fcntl` 与目录 `fsync`，目前限 Linux/macOS 等 POSIX 系统；上游会话模块的 Windows 支持不代表新包装层支持 Windows。SDK 来自固定上游版本，正式提交增加了本地状态记录，详见 [来源](provenance.md)。未经本次真实服务测试，不宣称当前线上登录/提交端到端已通过。
 
 ## 登录与会话
 
